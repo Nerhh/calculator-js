@@ -29,34 +29,43 @@ function writeToLog(operationID, prevResult, operationNum, newResult){
     console.log(logEntries);
 }
 
-function addNum(){
+function calculateRes(calculationType){
     const enteredNum = userNumInput();
     const initialResult = currentResult;
-    currentResult += enteredNum;
-    createAndWriteOutput('+', initialResult, enteredNum);
-    writeToLog('ADD', initialResult, enteredNum, currentResult);
+    let mathOperator;
+
+    if(calculationType === 'ADD'){
+        currentResult += enteredNum;
+        mathOperator = '+';
+    } else if(calculateType === 'SUBTRACT') {
+        currentResult -= enteredNum;
+        mathOperator = "-";
+    } else if(calculateType === 'MULTIPLY') {
+        currentResult *= enteredNum;
+        mathOperator = "*";
+    } else if(calculateType === 'DIVIDE') {
+        currentResult /= enteredNum;
+        mathOperator = "/";
+    } else {
+        console.log("Error");
+    }
+
+    createAndWriteOutput(mathOperator, initialResult, enteredNum);
+    writeToLog(calculationType, initialResult, enteredNum, currentResult);
+}
+
+function addNum(){
+    calculateRes('ADD');
 }
 
 function subtractNum(){
-    const enteredNum = userNumInput();
-    const initialResult = currentResult;
-    currentResult -= enteredNum;
-    createAndWriteOutput('-', initialResult, enteredNum);
-    writeToLog('SUBTRACT', initialResult, enteredNum, currentResult);
+    calculateRes('SUBTRACT');
 }
 
 function multiplyNum(){
-    const enteredNum = userNumInput();
-    const initialResult = currentResult;
-    currentResult *= enteredNum;
-    createAndWriteOutput('*', initialResult, enteredNum);
-    writeToLog('MULTIPLY', initialResult, enteredNum, currentResult);
+    calculateRes('MULTIPLY');
 }
 
 function divideNum(){
-    const enteredNum = userNumInput();
-    const initialResult = currentResult;
-    currentResult /= enteredNum;
-    createAndWriteOutput('/', initialResult, enteredNum);
-    writeToLog('DIVIDE', initialResult, enteredNum, currentResult);
+    calculateRes('DIVIDE');
 }
