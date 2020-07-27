@@ -34,21 +34,19 @@ function calculateRes(calculationType){
     const initialResult = currentResult;
     let mathOperator;
 
-    if(calculationType === 'ADD'){
+    if (calculationType === 'ADD'){
         currentResult += enteredNum;
         mathOperator = '+';
-    } else if(calculateType === 'SUBTRACT') {
+    } else if (calculationType === 'SUBTRACT') {
         currentResult -= enteredNum;
         mathOperator = "-";
-    } else if(calculateType === 'MULTIPLY') {
+    } else if (calculationType === 'MULTIPLY') {
         currentResult *= enteredNum;
         mathOperator = "*";
-    } else if(calculateType === 'DIVIDE') {
+    } else if (calculationType === 'DIVIDE') {
         currentResult /= enteredNum;
         mathOperator = "/";
-    } else {
-        console.log("Error");
-    }
+    } 
 
     createAndWriteOutput(mathOperator, initialResult, enteredNum);
     writeToLog(calculationType, initialResult, enteredNum, currentResult);
